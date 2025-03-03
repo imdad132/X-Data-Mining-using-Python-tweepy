@@ -1,2 +1,42 @@
-# X-Data-Mining-using-Python-tweepy
+import tweepy
+import pandas as pd
+
+# Replace with your Twitter API credentials
+BEARER_TOKEN = "put your X token here"
+
+# Initialize the Tweepy client
+client = tweepy.Client(bearer_token=BEARER_TOKEN)
+
+# Define the search query
+query = "UkraineRussiaWar"
+
+# Fetch recent tweets containing the query
+try:
+    # Fetch tweets
+    response = client.search_recent_tweets(query=query, max_results=50, tweet_fields=["id", "text", "created_at"])
+
+    # Check if there are tweets in the response
+    if response.data:
+        # Store tweets in a container
+        attributes_container = []
+        for tweet in response.data:
+            attributes_container.append([tweet.id, tweet.text, tweet.created_at])
+
+        # Define columns for the DataFrame
+        columns = ["Tweet ID", "Tweet Text", "Created At"]
+
+        # Create DataFrame
+        tweets_df = pd.DataFrame(attributes_container, columns=columns)
+
+        # Print the DataFrame
+        print(tweets_df)
+    else:
+        print("No tweets found.")
+
+except tweepy.TweepyException as e:
+    print('Error:', str(e))
+
+from google.colab import files
+tweets_df.to_csv('tweets.csv')
+files.download('tweets.csv')# X-Data-Mining-using-Python-tweepy
 Fetching data of Tweets on the Ukraine-Russia War from X 
