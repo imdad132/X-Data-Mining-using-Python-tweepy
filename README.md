@@ -7,12 +7,12 @@ relevant to the Ukraine-Russia War
 ● They are fetched directly from the X 
 platform 
 
-##Setup
+## Setup
 1. Install Python libraries
-2. !pip install tweepy
-3. !pip install pandas
+   pip install tweepy
+   pip install pandas
 
-##Python learning
+## Python learning
 ● Use of Python Libraries like 
 Tweepy and Pandas
 ● Tweepy helps to harvest the 
@@ -23,4 +23,4 @@ organize and handle big data
 
 ## Conclusion 
 Python helped me get large amounts of 
-online data and stored in a CSV file ready to be analysed. 
+online data and store it in a CSV file ready to be analysed. 
